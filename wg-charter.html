@@ -148,7 +148,7 @@
         <ol>
             <li>enables rendering of modern graphics to both onscreen and offscreen drawing surfaces</li>
             <li>enables computation tasks to be performed, and the results of such tasks to be retrieved</li>
-            <li>This group may also recommend a companion Shading Language that describes the graphics and computation tasks in a format
+            <li>This group will also recommend a companion Shading Language that describes the graphics and computation tasks in a format
             that can be translated or compiled into platform-specific instructions</li>
         </ol>
 
@@ -156,6 +156,12 @@
             The API will not be restricted to any particular platform technology. Instead, it will
             be generic enough to be implemented on top of modern GPU system APIs, such as
             Microsoft's Direct3D 12, Apple's Metal, and Khronos's Vulkan.
+        </p>
+
+        <p>
+            This Working Group will investigate and document mitigation
+            strategies for the API, notably to address fingerprinting issues
+            and to prevent unauthorized use of computational resources.
         </p>
 
         <p>
@@ -194,21 +200,19 @@
               An API for performing operations, such as rendering and
               computation, on a Graphics Processing Unit (GPU).
               <p class="draft-status"><b>Draft state:</b> <a href="https://gpuweb.github.io/gpuweb/">Adopted from the GPU for the Web Community Group</a></p>
-              <p class="milestone"><b>Recommendation expected completion:</b> Q3 2021</p>
+              <p class="milestone"><b>Recommendation expected completion:</b> Q1 2022</p>
           </dd>
-          </dl>
 
-          <h3>
-            Optional Specifications
-          </h3>
-          <dl>
           <dt>WebGPU Shading Language</dt>
 
           <dd>
               A Shading Language specification that defines the programmable
               interface to the GPU for the Web graphics and computation
-              pipeline. Alternatively, the Working Group may recommend
-              an existing Shading Language.
+              pipeline, convertable to Khronos' SPIR-V language and composed
+              of constructs defined as normative references to their SPIR-V
+              counterparts.
+              <p class="draft-status"><b>Draft state:</b> <a href="https://gpuweb.github.io/gpuweb/wgsl.html">Adopted from the GPU for the Web Community Group</a></p>
+              <p class="milestone"><b>Recommendation expected completion:</b> Q1 2022</p>
           </dd>
           </dl>
         </div>
@@ -236,7 +240,7 @@
       <section id="success-criteria">
         <h2>Success Criteria</h2>
         <p>In order to advance to  <a href="https://www.w3.org/2018/Process-20180201/#RecsCR" title="Proposed Recommendation">Proposed Recommendation</a>, each specification is expected to have <a href="https://www.w3.org/Consortium/Process/#implementation-experience">at least two independent implementations of each feature defined in the specification</a>.</p>
-        <p>Each specification should contain a section detailing any <a href='https://www.w3.org/TR/security-privacy-questionnaire/'>known security</a>, fingerprinting, and privacy implications, and suggested <a href='https://w3c.github.io/perf-security-privacy/'>mitigation strategies</a> for implementers, web authors, and end users. The group should not publish a specification if acceptable mitigation strategies cannot be found.</p>
+        <p>Each specification should contain a section detailing any <a href='https://www.w3.org/TR/security-privacy-questionnaire/'>known security</a>, fingerprinting, and privacy implications, and suggested mitigation strategies for implementers, web authors, and end users. The group should not publish a specification if acceptable mitigation strategies cannot be found.</p>
         <p>Each specification should contain a section describing known impacts on accessibility to users with disabilities, ways the specification features address them, and recommendations for minimizing accessibility problems in implementation.</p>
         <p>Normative specification changes are generally expected to have a corresponding set of tests, either in the form of new tests or modifications to existing tests, or must include the rationale for why test updates are not required for the proposed update.</p>
       </section>
@@ -244,16 +248,15 @@
 
       <section id="coordination">
         <h2>Coordination</h2>
-        <p>For all specifications, this Working Group will seek <a href="https://www.w3.org/Guide/Charter.html#horizontal-review">horizontal review</a> for accessibility, internationalization, performance, privacy, and security with the relevant Working and Interest Groups, and with the <a href="https://www.w3.org/2001/tag/" title="Technical Architecture Group">TAG</a>. Invitation for review must be issued during each major standards-track document transition, including <a href="https://www.w3.org/2018/Process-20180201/#RecsWD" title="First Public Working Draft">FPWD</a> and <a href="https://www.w3.org/2018/Process-20180201/#RecsCR" title="Candidate Recommendation">CR</a>, and should be issued when major changes occur in a specification.</p>
+        <p>For all specifications, this Working Group will seek <a href="https://www.w3.org/Guide/Charter.html#horizontal-review">horizontal review</a> for accessibility, internationalization, performance, privacy, and security with the relevant Working and Interest Groups, and with the <a href="https://www.w3.org/2001/tag/" title="Technical Architecture Group">TAG</a>. Invitation for review must be issued during each major standards-track document transition, including <a href="https://www.w3.org/Consortium/Process/#RecsWD" title="First Public Working Draft">FPWD</a>. The Working Group is encouraged to engage collaboratively with the horizontal review groups throughout development of each specification. The Working Group is advised to seek a review at least 3 months before first entering <a href="https://www.w3.org/Consortium/Process/#RecsCR" title="Candidate Recommendation">CR</a> and is encouraged to proactively notify the horizontal review groups when major changes occur in a specification following a review.</p>
 
         <p>Additional technical coordination with the following Groups will be made, per the <a href="https://www.w3.org/2018/Process-20180201/#WGCharter">W3C Process Document</a>:</p>
 
         <div>
           <h3 id="w3c-coordination">W3C Groups</h3>
           <dl>
-            <dt><a href="https://www.w3.org/2001/tag/">Technical Architecture Group (TAG)</a></dt>
-        <dd>The WG may ask the Technical Architecture Group to review some of its specifications.</dd>
-
+            <dt><a href="https://www.w3.org/immersive-web/">Immersive Web Working Group</a></dt>
+            <dd>The Immersive Web Working Group produces specifications to interact with Virtual Reality (VR) and Augmented Reality (AR) devices and sensors, and may add a 3D rendering layer based on the WebGPU API.</dd>
         <dt><a href="https://www.w3.org/2019/webapps/">Web Applications Working Group</a></dt>
         <dd>The Web Applications Working Group (WebApps WG) produces specifications that facilitate the development of client-side web applications.</dd>
 
@@ -265,20 +268,13 @@
 
         <dt><a href="https://www.w3.org/community/webmachinelearning/">Machine Learning for the Web Community Group</a></dt>
         <dd>This Community Group incubates a dedicated low-level Web API for machine learning inference.</dd>
-
-        <dt><a href="https://www.w3.org/community/wicg/">Web Platform Incubator Community Group</a></dt>
-        <dd>
-          This group provides a lightweight venue for proposing, incubating and discussing new web platform features. The Web Performance Working group will incubate and review new proposals that are within scope of our charter within the WICG. Once such WICG-incubated proposal is implemented and available in at least one major browser, and has support from one more, it may be adopted by the Web Performance Working group.
-        </dd>
           </dl>
           <h3 id="external-coordination">External Organizations</h3>
           <dl>
-            <dt><a href="https://www.ecma-international.org/memento/tc39.htm" id="tc39">ECMA Technical Committee 39 (TC39)</a></dt>
-          <dd>This is the group responsible for ECMAScript standardization. As the Web Performance Working Group will be developing ECMAScript APIs, it should collaborate with TC39.</dd>
           <dt><a title="WHATWG" href="https://whatwg.org/" id="whatwg">Web Hypertext Application Technology Working Group (WHATWG)</a></dt>
           <dd>The Web Hypertext Application Technology Working Group (WHATWG) is a community of people interested in evolving the web through standards and tests.</dd>
           <dt><a title="Khronos" href="https://khronos.org/" id="khronos">Khronos</a></dt>
-          <dd>The Khronos Organization is a standards body that develops many graphics-related technologies, including OpenGL and Vulkan.</dd>
+          <dd>The Khronos Organization is a standards body that develops many graphics-related technologies, including OpenGL, Vulkan and SPIR-V.</dd>
           </dl>
         </div>
       </section>
